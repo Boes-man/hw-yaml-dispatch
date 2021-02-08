@@ -9,17 +9,3 @@ func main() {
 func World() string {
     return "World"
 }
-EOF
-cat <<EOF | > main_test.go
-package main
-
-import (
-    "testing"
-)
-
-func Test_World(t *testing.T) {
-    actual := World()
-    if actual != "World" {
-        t.Fail()
-    }
-}
