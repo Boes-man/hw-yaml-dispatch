@@ -13,7 +13,7 @@ resource:
     type: git
   git-ops:
     param:
-     url: https://github.com/Boes-man/hw-yaml-dispatch
+     url: https://github.com/Boes-man/cicd-hello-world-gitops
      type: git
 
 task:
