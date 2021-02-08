@@ -11,6 +11,10 @@ resource:
       revision: $(context.git.commit)
       url: $(context.git.url)
     type: git
+  git-ops:
+    param:
+     url: https://github.com/Boes-man/hw-yaml-dispatch
+     type: git
 
 task:
   build:
