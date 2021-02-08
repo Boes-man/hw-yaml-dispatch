@@ -40,6 +40,18 @@ task:
       name: unit-test-simple
       resources: {}
       workingDir: /workspace/helloworld-git/
+  deploy:
+    inputs:
+    - docker-image
+    - git-ops
+    steps:
+    - args:
+      - -git-revision=$(context.git.commit)
+      - -substitute=imageName=boesman/helloworld@$(inputs.resources.docker-image.digest)
+      - -scm-provider=github
+      name: update-gitops-repo
+      image: mesosphere/update-gitops-repo:1.2.0
+      workingDir: /workspace/gitops-git
 
 actions:
 - "on":
@@ -52,3 +64,10 @@ actions:
       - test
   tasks:
   - unit-test-simple
+- "on":
+    push:
+      branches:
+      - master
+  tasks:
+  - build
+  - deploy
