@@ -7,5 +7,5 @@ func main() {
 }
 
 func World() string {
-    return "World"
+    return "Worlds"
 }
