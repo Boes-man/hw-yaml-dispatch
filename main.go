@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-    fmt.Printf("Hell %v!", World())
+    fmt.Printf("Hello %v!", World())
 }
 
 func World() string {
